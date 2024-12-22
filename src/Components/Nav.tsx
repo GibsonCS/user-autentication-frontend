@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 
 export const Nav = () => {
     const items = [
-        <Link className="hover:text-sky-200" to={'/users'}>Listar usuários</Link>,
-        <Link className="hover:text-sky-200" to={'/register/user'}>Cadastrar Usuário</Link>,
+        <Link className="hover:text-sky-200 hover:scale-105 transition" to={'/users'}>Listar usuários</Link>,
+        <Link className="hover:text-sky-200 hover:scale-105 transition" to={'/register/user'}>Cadastrar Usuário</Link>,
     ]
 
     return (
