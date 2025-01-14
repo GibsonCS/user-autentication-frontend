@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { checkAuth } from "../util/checkAuth"
+import { checkAuth } from "../../util/checkAuth"
 import { Navigate, Outlet, useNavigate } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"
+import { useAuth } from "../../context/AuthContext"
 
 //receives and destructures an object with the requiredRoles property of the array string type
 export const ProtectedRoute = ({ requiredRoles }: { requiredRoles?: string[] }) => {
