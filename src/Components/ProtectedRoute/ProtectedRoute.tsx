@@ -14,11 +14,13 @@ export const ProtectedRoute = ({ requiredRoles }: { requiredRoles?: string[] }) 
         const handleAuth = async () => {
             const response = await checkAuth()
             const data = await response.json()
+            console.log(data)
             if (response.status === 200) {
                 login(data.username)
             } else {
                 return navigate("/login", { state: 'Você não está autenticado' })
             }
+            console.log(data)
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             requiredRoles?.some(role => data.roles[0].includes(role)) ? setHasRole(true) : setHasRole(false)
         }

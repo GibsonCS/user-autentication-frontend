@@ -2,10 +2,8 @@
 
 export const Index = () => {
     return (
-        <>
-            <section>
-                <span className="text-xl">Bem vindo(a), teste</span>
-            </section>
-        </>
+        <div className="flex flex-col h-svh bg-gradient-to-bl from-sky-950 to-sky-700">
+
+        </div>
     )
 }

@@ -1,12 +1,29 @@
 import { createContext, useState, useContext } from 'react'
+import { AuthContextType } from '../interfaces/AuthContextType'
+import { AuthProviderProps } from '../interfaces/AuthProviderProps'
 
+const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-const AuthContext = createContext(null)
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+    const [user, setUser] = useState('')
 
-export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
-
-    const login = (userData: any) => {
-        setUser(userData)
+    const login = (username: string) => {
+        setUser(username)
     }
+
+    return (
+        <AuthContext.Provider value={{ user, login }} >
+            {children}
+        </AuthContext.Provider>
+    )
+
+
+}
+export const useAuth = (): AuthContextType => {
+    const context = useContext(AuthContext)
+
+    if (!context) {
+        throw new Error('Nenhum contexto')
+    }
+    return context
 }
