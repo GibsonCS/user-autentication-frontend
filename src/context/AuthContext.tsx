@@ -16,8 +16,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             {children}
         </AuthContext.Provider>
     )
-
-
 }
 export const useAuth = (): AuthContextType => {
     const context = useContext(AuthContext)
