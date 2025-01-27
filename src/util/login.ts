@@ -2,7 +2,6 @@ import { User } from "../interfaces/User"
 
 
 export const doLogin = async (username: string, password: string) => {
-
     const credentials: User = {
         username: username,
         password: password,
