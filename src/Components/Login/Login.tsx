@@ -60,7 +60,7 @@ export const Login = () => {
           </label>
           <input
             className="border text-sky-950 border-black rounded-md pl-1 shadow"
-            type="text"
+            type="password"
             {...register("password", { required: "A senha é obrigatória" })}
           />
           {errors.password && <span className="text-red-400">{errors.password?.message}</span>}
