@@ -1,13 +1,13 @@
-import { useAuth } from "../context/AuthContext"
+import { useAuth } from "../context/AuthContext";
 
 export const Dashboard = () => {
-    const { user } = useAuth()
+  const { user } = useAuth();
 
-    return (
-        <>
-            <section>
-                <span className="text-xl">Bem vindo(a), {user} </span>
-            </section>
-        </>
-    )
-}
+  return (
+    <>
+      <section>
+        <span className="text-xl">Bem vindo(a), {user} </span>
+      </section>
+    </>
+  );
+};
