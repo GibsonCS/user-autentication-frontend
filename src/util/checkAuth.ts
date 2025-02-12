@@ -1,11 +1,11 @@
 export const checkAuth = async () => {
-  return await fetch(`${import.meta.env.VITE_URL_API}/auth/check`, {
-    credentials: "include",
-  });
-
-  // if (response.status === 200) {
-  //     return data
-  // } else {
-  //     throw new Error('Usuário não autenticado.');
-  // }
+  try {
+    return await fetch(`${import.meta.env.VITE_URL_API}/auth`, {
+      method: "GET",
+      credentials: "include",
+    });
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error to check auth");
+  }
 };
