@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
-import { doLogin } from "../../util/login";
+import { auth } from "../../util/login";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -17,10 +17,10 @@ export const Login = () => {
     password: string;
   };
 
-  const makeLogin = async (data: FormInputs) => {
+  const handleLogin = async (data: FormInputs) => {
     const { username, password } = data;
     try {
-      const response = await doLogin(username, password);
+      const response = await auth(username, password);
       if (response) {
         login(response);
         navigate("/dashboard");
@@ -43,7 +43,7 @@ export const Login = () => {
       <div className="items-center gap-2 p-4 border-gray-400 w-1/4 flex flex-col">
         <form
           className="flex flex-col items-center gap-2 p-4 w-full"
-          onSubmit={handleSubmit(makeLogin)}
+          onSubmit={handleSubmit(handleLogin)}
         >
           <label className="font-semibold" htmlFor="login">
             Login
