@@ -1,16 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { auth } from "../../util/login";
-import { useAuth } from "../../context/AuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 export const Login = () => {
-  const { login } = useAuth();
-  const navigate = useNavigate();
   const [loginError, setLoginError] = useState("");
   const location = useLocation();
   const authMessage = location.state;
+  const navigate = useNavigate();
 
   type FormInputs = {
     username: string;
@@ -21,10 +19,8 @@ export const Login = () => {
     const { username, password } = data;
     try {
       const response = await auth(username, password);
-      if (response) {
-        login(response);
-        navigate("/dashboard");
-      }
+      localStorage.setItem("username", response.username);
+      navigate("/dashboard");
     } catch (err: any) {
       setLoginError(err.message);
       console.error(loginError);
