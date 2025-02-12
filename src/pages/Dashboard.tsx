@@ -1,12 +1,9 @@
-import { useAuth } from "../context/AuthContext";
-
 export const Dashboard = () => {
-  const { user } = useAuth();
-
+  const username = localStorage.getItem("username");
   return (
     <>
       <section>
-        <span className="text-xl">Bem vindo(a), {user} </span>
+        <span className="text-xl">Bem vindo(a), {username} </span>
       </section>
     </>
   );
