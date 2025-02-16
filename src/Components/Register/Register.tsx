@@ -10,18 +10,18 @@ export const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<UserForm>();
-  const [user, setUser] = useState<any>(null)
-  const [errorRegister, setErrorRegister] = useState<any>(null)
+  const [user, setUser] = useState<any>(null);
+  const [errorRegister, setErrorRegister] = useState<any>(null);
 
   const handleUserRegister = async (userData: UserForm) => {
     try {
       const response = await userRegister(userData);
       const data = await response.json();
       if (response.status === 201) {
-        setUser(data)
-        setErrorRegister(null)
+        setUser(data);
+        setErrorRegister(null);
       } else {
-        setErrorRegister(data)
+        setErrorRegister(data);
       }
     } catch (error: any) {
       console.error(error);
@@ -82,9 +82,9 @@ export const Register = () => {
         </>
       )}
       {user && (
-        <div className="flex flex-col">
-          <span className="text-sky-400">{user.message}</span>
-          <Link to={'/users'}>
+        <div className="flex flex-col items-center gap-2 h-screen justify-center">
+          <span className="font-normal p-8 text-2xl">{user.message}</span>
+          <Link to={"/users"}>
             <button className="border border-md p-1 rounded-md">Voltar</button>
           </Link>
         </div>
