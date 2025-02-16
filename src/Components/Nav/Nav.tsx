@@ -5,7 +5,7 @@ export const Nav = () => {
     <Link className="hover:text-sky-200 hover:scale-105 transition" to={"/users"}>
       Listar usuários
     </Link>,
-    <Link className="hover:text-sky-200 hover:scale-105 transition" to={"/register/user"}>
+    <Link className="hover:text-sky-200 hover:scale-105 transition" to={"/register"}>
       Cadastrar Usuário
     </Link>,
   ];
