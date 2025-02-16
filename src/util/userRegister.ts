@@ -6,5 +6,5 @@ export const userRegister = async (userData: UserForm) => {
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(userData),
   };
-  return await fetch(`${import.meta.env.VITE_URL_API}/user`, requestConfig);
+  return await fetch(`${import.meta.env.VITE_URL_API}/users`, requestConfig);
 };
