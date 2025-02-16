@@ -4,6 +4,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Login } from "./Components/Login/Login";
 import { ProtectedRoute } from "./Components/ProtectedRoute/ProtectedRoute";
 import { Register } from "./Components/Register/Register";
+import { Users } from "./pages/Users/Users";
 
 export const AppRoute = () => {
   return (
@@ -14,6 +15,7 @@ export const AppRoute = () => {
           <Route element={<Layout />}>
             <Route path="/cadastro" element={<Register />} />s
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/users" element={<Users />} />
           </Route>
         </Route>
       </Routes>
