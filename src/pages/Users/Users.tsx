@@ -15,16 +15,21 @@ export const Users = () => {
 
   return (
     <div className="h-screen flex flex-col items-center">
-      <table className="border w-full text-center">
-        <tr className="border-b text-2xl">
-          <th className="p-1 border-r">Username</th>
-          <th>Email</th>
-        </tr>
-        {users?.map((user: any, index) => (
-          <tr className="border-b text-xl" key={index}>
-            <td className="border-r">{user.username}</td>
-            <td>{user.email}</td>
+      <span className="p-8 text-2xl">All Users Registered</span>
+      <table className="border table-auto border-gray-900 w-10/12 text-center">
+        <thead className="bg-gradient-to-tl from-gray-950 to-gray-800 text-2xl">
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
           </tr>
+        </thead>
+        {users?.map((user: any, index) => (
+          <tbody className="border border-gray-950 bg-gradient-to-bl from-gray-900 to-gray-600 text-xl hover:cursor-pointer">
+            <tr className="hover:bg-sky-200 hover:text-sky-950" key={index}>
+              <td>{user.username}</td>
+              <td>{user.email}</td>
+            </tr>
+          </tbody>
         ))}
       </table>
     </div>
