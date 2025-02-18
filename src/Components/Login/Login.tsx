@@ -19,8 +19,13 @@ export const Login = () => {
     const { username, password } = data;
     try {
       const response = await auth(username, password);
-      localStorage.setItem("username", response.username);
-      navigate("/dashboard");
+      const dataResponse = await response.json();
+      if (response.status === 200) {
+        localStorage.setItem("username", dataResponse.username);
+        navigate("/dashboard");
+      } else {
+        setLoginError(dataResponse.message);
+      }
     } catch (err: any) {
       setLoginError(err.message);
       console.error(loginError);
@@ -66,6 +71,7 @@ export const Login = () => {
           >
             Entrar
           </button>
+          {loginError && <span>{loginError}</span>}
           <span>{authMessage}</span>
         </form>
       </div>
